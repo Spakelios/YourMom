@@ -10,7 +10,7 @@ public class NoteArea : MonoBehaviour
     public KeyCode keyToPress;
 
     public GameObject  goodEffect, greatEffect, perfectEffect, missedEffect;
-  
+
     private void Update()
     {
         if (Input.GetKeyDown(keyToPress))
@@ -20,7 +20,7 @@ public class NoteArea : MonoBehaviour
                 gameObject.SetActive(false);
                 //GameManager.instance.NoteHit();
 
-                if (Mathf.Abs(transform.position.y) > 0.25)
+                if (Mathf.Abs(transform.position.y) > 0.25f)
                 {
                     Debug.Log("hit");
                     GameManager.instance.NormalHit();
@@ -46,7 +46,7 @@ public class NoteArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("FunnyButton"))
+        if (other.CompareTag("Button"))
         {
             canBePRessed = true;
         }
@@ -54,7 +54,7 @@ public class NoteArea : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("FunnyButton"))
+        if (other.CompareTag("Button"))
         {
             canBePRessed = false;
 
