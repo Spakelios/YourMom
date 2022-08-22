@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -31,7 +27,7 @@ public class GameManager : MonoBehaviour
     public int multiplierTracker;
     public int[] multiplierThresholds;
 
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText , scoresText;
     public TextMeshProUGUI multiplierText;
 
     public GameObject resultsScreen;
@@ -61,7 +57,8 @@ public class GameManager : MonoBehaviour
             else if (!theMusic.isPlaying)
             {
                 resultsScreen.SetActive(true);
-                // goodsText.text = " " + goodHits;
+                scoresText.text ="Your Score" + currentScore;
+                // goodsText.text  = " " + goodHits;
                 // greatsText.text = " " + greatHits;
                 // perfectsText.text = " " + perfectHits;
                 // missesText.text = " " + missedHits;
@@ -90,7 +87,7 @@ public class GameManager : MonoBehaviour
                     {
                         multiplierTracker++;
 
-                        if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
+                        if (multiplierThresholds[currentMultiplier + 1] <= multiplierTracker)
                         {
                             multiplierTracker = 0;
                             currentMultiplier++;
